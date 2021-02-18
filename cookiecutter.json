@@ -1,6 +1,5 @@
 {
     "github_repository_name": "piedpiper-web",
-    "docker_setup_name": "dev-setup-custom",
     "app_name": "piedpiper",
     "email": "bob@bob.com",
     "description": "awe ma se skind",
