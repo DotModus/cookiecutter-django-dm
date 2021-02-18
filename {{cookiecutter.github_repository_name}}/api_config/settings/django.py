@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # 'rest_framework_social_oauth2',
 
     # local
+    'apps.users',
     'apps.{{cookiecutter.app_name}}'
 ]
 
@@ -128,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'apps.users.User'
+AUTH_USER_MODEL = 'users.User'
 #
 # PASSWORD_RESET_TIMEOUT = 86400  # 1d
 
