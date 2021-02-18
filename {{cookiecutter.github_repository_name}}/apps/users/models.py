@@ -66,7 +66,7 @@ class User(AbstractUser):
     # USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['email']
     # objects = CustomUserManager()
-x
+
     class Meta:
         """Override default meta attributes of User model."""
 
