@@ -128,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTH_USER_MODEL = 'social.User'
+AUTH_USER_MODEL = 'apps.users.User'
 #
 # PASSWORD_RESET_TIMEOUT = 86400  # 1d
 

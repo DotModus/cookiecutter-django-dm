@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12
+    volumes:
+      - "{{cookiecutter.github_repository_name}}-pgdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_DB={{cookiecutter.github_repository_name}}_local
+      - POSTGRES_USER={{cookiecutter.github_repository_name}}
+      - POSTGRES_PASSWORD={{cookiecutter.github_repository_name}}
+    ports:
+      - "5432:5432"
+
+volumes:
+  {{cookiecutter.github_repository_name}}-pgdata:
