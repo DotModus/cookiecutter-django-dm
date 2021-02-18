@@ -1,0 +1,54 @@
+default_language_version:
+  python: python3.6.8
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v2.1.0
+  hooks:
+    # Python Checks
+    - id: check-ast
+    - id: debug-statements
+    - id: flake8
+      additional_dependencies: ['pydocstyle<4',
+                                'flake8-docstrings',
+                                'flake8-eradicate',
+                                'flake8-polyfill',
+                                'flake8-print']
+      exclude: >
+        (?x)^(
+            .*/__init__.py |
+            .*/migrations/.*
+        )$
+    # Config Hooks
+    - id: check-json
+    - id: check-xml
+    # General Hooks
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+    # Git related hooks
+    - id: check-merge-conflict
+    - id: no-commit-to-branch
+      args:
+        - "--branch=develop"
+        - "--branch=dev"
+        - "--branch=master"
+        - "--branch=main"
+- repo: git://github.com/PyCQA/pydocstyle
+  rev: master
+  hooks:
+    - id: pydocstyle
+      exclude: >
+        (?x)^(
+            .*/__init__.py |
+            .*/migrations/.*
+        )$
+
+- repo: https://github.com/asottile/reorder_python_imports
+  rev: v1.2.0
+  hooks:
+    - id: reorder-python-imports
+      exclude: >
+        (?x)^(
+            .*/__init__.py |
+            .*/migrations/.*
+        )$
