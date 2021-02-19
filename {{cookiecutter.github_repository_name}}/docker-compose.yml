@@ -11,6 +11,11 @@ services:
       - POSTGRES_PASSWORD=cookie
     ports:
       - "5432:5432"
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U cookie"
+      interval: 300s
+      timeout: 50s
+      retries: 10
   web:
     restart: always
     environment:
@@ -18,8 +23,7 @@ services:
     image: web
     build: ./
     command: >
-      bash -c "python wait_for_postgres.py &&
-               ./manage.py migrate &&
+      bash -c "./manage.py migrate &&
                ./manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./:/code
