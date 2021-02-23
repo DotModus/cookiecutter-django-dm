@@ -12,4 +12,4 @@ WORKDIR code
 EXPOSE 8000
 
 # Run the production server
-CMD newrelic-admin run-program gunicorn --bind 0.0.0.0:$PORT --access-logfile - {{cookiecutter.app_name}}.wsgi:application
+CMD gunicorn --bind 0.0.0.0:8000 --access-logfile - {{cookiecutter.app_name}}.wsgi:application

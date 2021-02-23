@@ -10,7 +10,7 @@ router = routers.DefaultRouter()
 router.register('users', viewsets.UserViewSet)
 
 urlpatterns = [
-    path('', include((router.urls, 'users'), 'users'), name='user-root'),
+    path('', include(router.urls))
     # path('api/token/', views.TokenObtainPairWithIDView.as_view(),
     #      name='token_obtain_pair'),
     # path('api/refresh/', TokenRefreshView.as_view(),

@@ -37,9 +37,9 @@ from django.urls import path
 # )
 
 urlpatterns = [
+    path('v1/', include(('apps.users.urls', 'users'), namespace='users')),
     path('v1/', include(('apps.{{ cookiecutter.app_name }}.urls',
-                         '{{ cookiecutter.app_name }}'))),
-    path('v1/', include(('apps.users.urls', 'users'))),
+                         'apps.{{ cookiecutter.app_name }}'), namespace='{{ cookiecutter.app_name }}')),
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),

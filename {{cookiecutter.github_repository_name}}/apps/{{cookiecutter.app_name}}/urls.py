@@ -3,6 +3,7 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
 # from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
 from . import views
 from . import viewsets
@@ -10,7 +11,7 @@ from . import viewsets
 router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('', include((router.urls, '{{ cookiecutter.app_name }}'), '{{ cookiecutter.app_name }}'), name='{{ cookiecutter.app_name }}-root'),
+    path('', include(router.urls))
     # path('api/token/', views.TokenObtainPairWithIDView.as_view(),
     #      name='token_obtain_pair'),
     # path('api/refresh/', TokenRefreshView.as_view(),
