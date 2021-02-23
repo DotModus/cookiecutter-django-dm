@@ -7,20 +7,24 @@ VENV := {{cookiecutter.virtual_env_name}}
 all: venv
 
 $(VENV)/bin/activate: virtualenv requirements.txt
+	echo "Creating virtualenv and installing requirements"
 	python3 -m virtualenv $(VENV)
 	./$(VENV)/bin/pip install -r requirements.txt
 
 virtualenv:
+	echo "Ensuring virtualenv exists"
 	which virtualenv
 
 # venv is a shortcut target
 venv: $(VENV)/bin/activate
 
-run: venv startup
+run:
+	echo "Running development server"
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py runserver
 
 startup: venv
+	echo "Starting up DB and creating a super user"
 	docker-compose up -d
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py createsuperuser
