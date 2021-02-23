@@ -1,7 +1,7 @@
 # define the name of the virtual environment directory
 VENV := {{cookiecutter.virtual_env_name}}
 
-.PHONY: all venv run clean virtualenv
+.PHONY: all venv run clean virtualenv startup
 
 # default target, when make executed without arguments
 all: venv
@@ -18,7 +18,7 @@ venv: $(VENV)/bin/activate
 
 run: venv startup
 	./$(VENV)/bin/python3 manage.py migrate
-	./$(VENV)/bin/python3 manage.py migrate
+	./$(VENV)/bin/python3 manage.py runserver
 
 startup: venv
 	docker-compose up -d
