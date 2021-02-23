@@ -38,8 +38,8 @@ from django.urls import path
 
 urlpatterns = [
     path('v1/', include(('apps.{{ cookiecutter.app_name }}.urls',
-                         '{{ cookiecutter.app_name }}'), namespace='v1')),
-    path('v1/', include(('apps.users.urls', 'users'), namespace='v1')),
+                         '{{ cookiecutter.app_name }}'))),
+    path('v1/', include(('apps.users.urls', 'users'))),
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),

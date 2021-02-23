@@ -10,7 +10,7 @@ from . import viewsets
 router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('', include((router.urls, '{{ cookiecutter.app_name }}'), 'api'), name='api-root'),
+    path('', include((router.urls, '{{ cookiecutter.app_name }}'), '{{ cookiecutter.app_name }}'), name='{{ cookiecutter.app_name }}-root'),
     # path('api/token/', views.TokenObtainPairWithIDView.as_view(),
     #      name='token_obtain_pair'),
     # path('api/refresh/', TokenRefreshView.as_view(),
