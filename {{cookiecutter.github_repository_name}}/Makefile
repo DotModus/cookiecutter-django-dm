@@ -25,6 +25,9 @@ startup: venv
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py createsuperuser
 
+drop:
+	docker-compose down -v
+
 reset-virtualenv:
 	python3 -m virtualenv --clear $(VENV)
 
