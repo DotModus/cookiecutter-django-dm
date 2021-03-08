@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     # 'rest_framework_social_oauth2',
 
     # local
-    'apps.users',
+    'apps.core',
     'apps.{{cookiecutter.app_name}}'
 ]
 

@@ -7,9 +7,8 @@ def get_random_secret_key():
     length = 50
     return ''.join(random.choice(allowed_chars) for _ in range(length))
 
-import os
-print(os.listdir('.'))
-with open('../{{cookiecutter.github_repository_name}}/.env', 'w') as env_file:
+
+with open('.env', 'w') as env_file:
     env_file.write(
         f"SECRET_KEY={get_random_secret_key()}\n"
         f"DATABASE_ENGINE=django.db.backends.postgresql\n"
