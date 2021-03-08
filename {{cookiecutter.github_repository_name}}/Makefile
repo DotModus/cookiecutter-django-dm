@@ -1,7 +1,7 @@
 # define the name of the virtual environment directory
 VENV := {{cookiecutter.virtual_env_name}}
 
-.PHONY: all venv run clean virtualenv startup
+.PHONY: all venv run clean virtualenv startup drop
 
 # default target, when make executed without arguments
 all: venv
@@ -23,7 +23,7 @@ run:
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py runserver
 
-startup: venv
+startup: venv drop
 	echo "Starting up DB and creating a super user"
 	docker-compose up -d
 	./$(VENV)/bin/python3 manage.py migrate
