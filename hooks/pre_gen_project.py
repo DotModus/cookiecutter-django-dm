@@ -1,4 +1,12 @@
-from  django.core.management.utils import get_random_secret_key
+import random
+
+
+def get_random_secret_key():
+    is_prng = random.SystemRandom()
+    allowed_chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    length = 50
+    return ''.join(random.choice(allowed_chars) for _ in range(length))
+
 
 with open('{{cookiecutter.github_repository_name}}/.env', 'w') as env_file:
     env_file.write(
