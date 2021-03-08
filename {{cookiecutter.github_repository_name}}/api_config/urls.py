@@ -18,6 +18,7 @@ from django.contrib import admin
 # from django.contrib.auth.decorators import login_required
 from django.conf.urls import include
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from rest_framework_simplejwt.views import TokenRefreshView
 
 # from django.urls import re_path
@@ -55,3 +56,5 @@ urlpatterns = [
     # ),
     # path('api/auth/oauth/', include('rest_framework_social_oauth2.urls')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
