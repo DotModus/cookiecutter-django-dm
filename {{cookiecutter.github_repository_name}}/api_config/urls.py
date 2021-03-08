@@ -37,7 +37,7 @@ from django.urls import path
 # )
 
 urlpatterns = [
-    path('v1/', include(('apps.users.urls', 'users'), namespace='users')),
+    path('v1/', include(('apps.core.urls', 'core'), namespace='core')),
     path('v1/', include(('apps.{{ cookiecutter.app_name }}.urls',
                          'apps.{{ cookiecutter.app_name }}'), namespace='{{ cookiecutter.app_name }}')),
     path('accounts/', include('rest_framework.urls',
