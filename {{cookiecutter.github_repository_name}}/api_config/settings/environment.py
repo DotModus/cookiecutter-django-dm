@@ -17,3 +17,5 @@ env_file = SITE_ROOT(".env")
 
 if os.path.exists(env_file):
     environ.Env.read_env(env_file=env_file)
+else:
+    print("No env file found")
