@@ -26,6 +26,7 @@ run:
 startup: venv drop
 	echo "Starting up DB and creating a super user"
 	docker-compose up -d
+	sleep 5
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py createsuperuser
 	./$(VENV)/bin/python3 manage.py collectstatic
