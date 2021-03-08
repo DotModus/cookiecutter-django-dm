@@ -28,6 +28,7 @@ startup: venv drop
 	docker-compose up -d
 	./$(VENV)/bin/python3 manage.py migrate
 	./$(VENV)/bin/python3 manage.py createsuperuser
+	./$(VENV)/bin/python3 manage.py collectstatic
 
 drop:
 	docker-compose down -v
