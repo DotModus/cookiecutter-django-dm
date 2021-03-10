@@ -15,27 +15,9 @@ Including another URLconf
 
 """
 from django.contrib import admin
-# from django.contrib.auth.decorators import login_required
 from django.conf.urls import include
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-# from rest_framework_simplejwt.views import TokenRefreshView
-
-# from django.urls import re_path
-# from drf_yasg import openapi
-# from drf_yasg.views import get_schema_view
-# from rest_framework import permissions
-
-
-# schema_view = get_schema_view(
-#     openapi.Info(
-#         title="",
-#         default_version='v1',
-#         description="",
-#     ),
-#     public=False,
-#     permission_classes=(permissions.IsAdminUser,),
-# )
 
 urlpatterns = [
     path('v1/', include(('apps.core.urls', 'core'), namespace='core')),
@@ -44,17 +26,6 @@ urlpatterns = [
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),
-    # re_path(
-    #     r'^swagger(?P<format>\.json|\.yaml)$',
-    #     login_required(schema_view.without_ui(cache_timeout=0)),
-    #     name='schema-json'
-    # ),
-    # path(
-    #     'swagger/',
-    #     login_required(schema_view.with_ui('swagger', cache_timeout=0)),
-    #     name='schema-swagger-ui'
-    # ),
-    # path('api/auth/oauth/', include('rest_framework_social_oauth2.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

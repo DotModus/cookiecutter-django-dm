@@ -7,10 +7,6 @@ class User(AbstractUser):
 
     email = models.EmailField('email address', unique=True)
 
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = ['email']
-    # objects = CustomUserManager()
-
     class Meta:
         """Override default meta attributes of User model."""
 
