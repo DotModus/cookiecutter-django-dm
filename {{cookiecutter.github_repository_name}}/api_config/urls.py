@@ -20,6 +20,9 @@ from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView,\
     SpectacularSwaggerView
+from rest_framework_simplejwt.views import TokenObtainPairView, \
+    TokenRefreshView
+
 
 urlpatterns = [
     path('', include(('apps.core.urls', 'core'), namespace='core')),
@@ -31,6 +34,9 @@ urlpatterns = [
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/',
          SpectacularSwaggerView.as_view(url_name='schema'),
