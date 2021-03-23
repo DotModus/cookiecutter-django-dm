@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView,\
+    SpectacularSwaggerView
 
 urlpatterns = [
     path('v1/', include(('apps.core.urls', 'core'), namespace='core')),
@@ -26,6 +28,10 @@ urlpatterns = [
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

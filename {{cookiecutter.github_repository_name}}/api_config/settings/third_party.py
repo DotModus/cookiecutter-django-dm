@@ -15,8 +15,9 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS':
         'rest_framework.versioning.NamespaceVersioning',
 
+    "DEFAULT_VERSION": "v1",
 
-    "DEFAULT_VERSION": "v1"
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 #  CORS headers
