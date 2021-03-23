@@ -22,16 +22,22 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView,\
     SpectacularSwaggerView
 
 urlpatterns = [
-    path('v1/', include(('apps.core.urls', 'core'), namespace='core')),
-    path('v1/', include(('apps.{{ cookiecutter.app_name }}.urls',
-                         'apps.{{ cookiecutter.app_name }}'), namespace='{{ cookiecutter.app_name }}')),
+    path('', include(('apps.core.urls', 'core'), namespace='core')),
+    path('',
+         include(('apps.{{ cookiecutter.app_name }}.urls',
+                  'apps.{{ cookiecutter.app_name }}'),
+                 namespace='{{ cookiecutter.app_name }}')
+         ),
     path('accounts/', include('rest_framework.urls',
                               namespace='rest_framework')),
     path('admin/', admin.site.urls, name='admin'),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    # Optional UI:
-    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('api/schema/swagger-ui/',
+         SpectacularSwaggerView.as_view(url_name='schema'),
+         name='swagger-ui'),
+    path('api/schema/redoc/',
+         SpectacularRedocView.as_view(url_name='schema'),
+         name='redoc'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

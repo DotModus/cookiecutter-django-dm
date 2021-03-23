@@ -12,11 +12,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 
-    'DEFAULT_VERSIONING_CLASS':
-        'rest_framework.versioning.NamespaceVersioning',
-
-    "DEFAULT_VERSION": "v1",
-
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
@@ -35,15 +30,3 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
     'cache-control',
 )
-
-# DRF yasg
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'basic': {
-            'type': 'basic'
-        }
-    },
-    'LOGIN_URL': '/accounts/login',
-    'LOGOUT_URL': '/accounts/logout',
-    'USE_SESSION_AUTH': True
-}
