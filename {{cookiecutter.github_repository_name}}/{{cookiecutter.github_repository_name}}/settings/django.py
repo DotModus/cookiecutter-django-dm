@@ -140,3 +140,41 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = env.str('STATIC_URL', default='static/')
 STATIC_ROOT = os.path.join(BASE_DIR, env.str('STATIC_ROOT', default='static/'))
+
+
+# Loging configuration for the web app.
+# https://docs.djangoproject.com/en/4.0/topics/logging/#configuring-logging
+LOG_LEVEL = env.str('LOG_LEVEL', 'INFO')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '{levelname}:{name}:{message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['console'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+        'apps': {
+            'handlers': ['console'],
+            'level': LOG_LEVEL,
+            'propogate': True,
+        },
+        # Add configurations for other modules here.
+    },
+}
