@@ -6,8 +6,8 @@ COPY ./requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Adds our application code to the image
-COPY . /opt/code
-WORKDIR /opt/code
+COPY . /opt/{{cookiecutter.github_repository_name}}
+WORKDIR /opt/{{cookiecutter.github_repository_name}}
 
 EXPOSE 8000
 
