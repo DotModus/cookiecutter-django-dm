@@ -44,7 +44,7 @@ urlpatterns = [
     path('api/schema/redoc/',
          SpectacularRedocView.as_view(url_name='schema'),
          name='redoc'),
-    path(r'^health/', include('health_check.urls')),
+    path('health/', include('health_check.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
