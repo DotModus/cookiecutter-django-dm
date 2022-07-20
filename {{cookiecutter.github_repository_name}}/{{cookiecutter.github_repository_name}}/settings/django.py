@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     # third party
     'rest_framework',
     'drf_spectacular',
-
+    'health_check',
+    'health_check.db',
+    'health_check.cache',
+    'health_check.storage',
     # local
     'apps.core',
     'apps.{{cookiecutter.app_name}}'
