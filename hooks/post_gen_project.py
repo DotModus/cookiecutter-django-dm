@@ -11,7 +11,7 @@ def get_random_secret_key():
 with open('.env', 'w') as env_file:
     env_file.write(
         f'SECRET_KEY="{get_random_secret_key()}"\n'
-        "DATABASE_ENGINE=django.db.backends.postgresql\n"
+        "DATABASE_ENGINE=django.db.backends.sqlite3\n"
         "DATABASE_NAME=cookie_local\n"
         "DATABASE_USER=cookie\n"
         "DATABASE_PASSWORD=cookie\n"
