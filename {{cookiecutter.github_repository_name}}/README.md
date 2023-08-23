@@ -4,5 +4,7 @@
 
 Start the dev server for local development:
 ```bash
-docker-compose up
+python manage.py migrate
+
+python manage.py runserver 
 ```
