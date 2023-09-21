@@ -17,11 +17,11 @@ class UserSerializer(serializers.ModelSerializer):
     def validate_password(self, value: str) -> str:
         """Ensure password field is not empty."""
         if value == '':
-            raise serializers.ValidationError("Password cannot be empty.")
+            raise serializers.ValidationError('Password cannot be empty.')
         return make_password(value)
 
     def validate_email(self, value: str) -> str:
         """Ensure email field is not empty."""
         if value == '':
-            raise serializers.ValidationError("Email cannot be empty.")
+            raise serializers.ValidationError('Email cannot be empty.')
         return value

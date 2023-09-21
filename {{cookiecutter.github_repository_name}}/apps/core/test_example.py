@@ -1,4 +1,2 @@
-import pytest
-
 def test_the_obvious():
-    assert True == True
+    assert 2 + 2 == 4

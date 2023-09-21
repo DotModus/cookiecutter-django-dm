@@ -6,5 +6,5 @@ Start the dev server for local development:
 ```bash
 python manage.py migrate
 
-python manage.py runserver 
+python manage.py runserver
 ```

@@ -1,5 +1,5 @@
 """API configurations."""
-from .django import * # All django related settings
-from .environment import *
-from .project import * # All custom {{cookiecutter.github_repository_name}} related settings
-from .third_party import * # DRF, Celery & other 3rd Party Apps settings
+from .django import *  # noqa: F403 # All django related settings
+from .environment import * # noqa: F403
+from .project import * # noqa: F403 # All custom testingSonar related settings
+from .third_party import * # noqa: F403 # DRF, Celery & other 3rd Party Apps settings

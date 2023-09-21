@@ -1,0 +1,15 @@
+# Enable flake8-bugbear (`B`) rules.
+select = ["E", "F", "B"]
+
+# Never enforce `E501` (line length violations).
+ignore = []
+
+# Allow lines to be as long as 91 characters.
+line-length = 91
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = []
+
+[per-file-ignores]
+"__init__.py" = ["E402"]
+"**/migrations/**" = ["E501"]
