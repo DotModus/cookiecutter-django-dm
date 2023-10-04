@@ -27,5 +27,5 @@ To format your code according to standards:
 pre-commit install
 
 # run this everytime you want to format code
-pre-commit run -a 
+pre-commit run -a
 ```

@@ -1,6 +1,4 @@
 [run]
-include = ./*
-omit = *migrations*, *tests*, *sgi**, *__init__*, *manage.py
-
-[report]
-omit = *sgi*
+source = .
+omit = */__init__.py
+  */migrations/*
