@@ -30,6 +30,10 @@ DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    env.str('CLOUDRUN_SERVICE_URL', default='http://localhost:3000')
+    ]
+
 
 # Application definition
 
@@ -57,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,6 +71,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = '{{cookiecutter.github_repository_name}}.urls'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 TEMPLATES = [
     {
@@ -148,7 +155,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = env.str('STATIC_URL', default='static/')
-STATIC_ROOT = os.path.join(BASE_DIR, env.str('STATIC_ROOT', default='static/'))
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Loging configuration for the web app.
