@@ -9,6 +9,8 @@ RUN pip install -r requirements.txt
 COPY . /opt/{{cookiecutter.github_repository_name}}
 WORKDIR /opt/{{cookiecutter.github_repository_name}}
 
+ENV DJANGO_SETTINGS_MODULE={{cookiecutter.github_repository_name}}.settings
+
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
