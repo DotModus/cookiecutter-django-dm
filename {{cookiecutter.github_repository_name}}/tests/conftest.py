@@ -1,7 +1,6 @@
 import pytest
-from django.test import Client
-
 from apps.core.models import User
+from django.test import Client
 
 @pytest.fixture
 def django_db_setup(transactional_db) -> None:

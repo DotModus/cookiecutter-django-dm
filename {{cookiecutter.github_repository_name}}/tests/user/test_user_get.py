@@ -1,8 +1,7 @@
 """This module contains tests for the User model."""
 import pytest
-from django.test import Client
-
 from apps.core.models import User
+from django.test import Client
 
 
 def test_user_get_not_logged_in() -> None:

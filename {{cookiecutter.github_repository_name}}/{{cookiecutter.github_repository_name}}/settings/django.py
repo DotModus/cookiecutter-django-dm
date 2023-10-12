@@ -72,8 +72,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'testBeforeDemo.urls'
 
 STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
 
