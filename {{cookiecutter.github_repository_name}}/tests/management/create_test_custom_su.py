@@ -2,16 +2,18 @@ import os
 from io import StringIO
 
 import pytest
-from apps.core.models import User
 from django.core.management import call_command
+
+from apps.core.models import User
 
 
 @pytest.mark.django_db
 def test_create_superuser() -> None:
     """Test that a superuser can be created."""
     os.environ['DJANGO_ADMIN_PASSWORD'] = 'password'
+    os.environ['DJANGO_ADMIN_USERNAME'] = 'Testadmin'
     call_command('create_custom_superuser')
-    assert User.objects.filter(username='admin').exists()
+    assert User.objects.filter(username='Testadmin').exists()
 
 
 @pytest.mark.django_db
@@ -23,11 +25,11 @@ def test_create_superuser_no_password() -> None:
         call_command('create_custom_superuser')
 
 
-
 @pytest.mark.django_db
 def test_create_superuser_already_exists() -> None:
     os.environ['DJANGO_ADMIN_PASSWORD'] = 'password'
     call_command('create_custom_superuser')
     out = StringIO()
     call_command('create_custom_superuser', stdout=out)
+
     assert 'Superuser already exists' in out.getvalue()

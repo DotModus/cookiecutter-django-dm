@@ -1,5 +1,5 @@
 """Third party application configurations."""
-from .environment import env # noqa: F401
+from .environment import env  # noqa: F401
 
 # DRF
 REST_FRAMEWORK = {

@@ -1,15 +1,15 @@
 import os
 
-from apps.core.models import User
 from django.core.management.base import BaseCommand
+
+from apps.core.models import User
+
+
 class Command(BaseCommand):
     """Base Command class"""
 
     help = 'Create a superuser if it does not exist'
-    password = os.getenv('DJANGO_ADMIN_PASSWORD', None)
-    username = os.getenv('DJANGO_ADMIN_USERNAME', 'admin')
-    if not password:
-        raise ValueError('DJANGO_ADMIN_PASSWORD environment variable is not set')
+
     def handle(self, *args, **kwargs):
         """Create superuser if it does not exist"""
         password = os.getenv('DJANGO_ADMIN_PASSWORD', None)
