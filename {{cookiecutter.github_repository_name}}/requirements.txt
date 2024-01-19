@@ -1,4 +1,4 @@
-Django~=5.1.0
+Django~=5.0.1
 django-cors-headers~=3.11.0
 django-environ~=0.8.1
 django-health-check~=3.16.5
